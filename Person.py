@@ -10,6 +10,16 @@ class person:
     def get_first_name(self):
         return self.first_name
 
+    def set_first_name(self, value: str):
+        self.first_name = value
+
+    def set_last_name(self, value: str):
+        self.last_name = value
+
+    def set_email(self, value: str):
+        self.email = value
+    
+
     def get_last_name(self):
         return self.last_name
 

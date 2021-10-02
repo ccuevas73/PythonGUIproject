@@ -41,11 +41,15 @@ def __init__controls():
     email_text.insert(END, current_contact.get_email())
 
     global save_button
-    save_button = Button(current_window, Text='Save')
+    save_button = Button(current_window, text='Save', command=__save_contact)
     save_button.grid(row=3, column=1, padx=__padx, pady=__pady)
 
     global delete_button
-    delete_button = Button(current_window, Text='Delete')
+    delete_button = Button(current_window, text='Delete')
     delete_button.grid(row=3, column=2, padx=__padx, pady=__pady)
 
-
+def __save_contact():
+    current_contact.set_first_name(first_name_text.get())
+    current_contact.set_last_name(last_name_text.get())
+    current_contact.set_email(email_text.get())
+    current_window.destroy()
