@@ -4,9 +4,10 @@ from Person import *
 __pady = 2
 __padx = 2
 
-def init(root: Tk, contact: person):
+def init(root: Tk, contact: person) -> Toplevel:
     init_contact(contact)
     init_window(root)
+    return current_window
 
 def init_contact(contact: person):
     global current_contact
