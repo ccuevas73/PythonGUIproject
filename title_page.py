@@ -9,7 +9,12 @@ def onselect(evt):
     w = evt.widget
     index = int(w.curselection()[0])
     selected_contact = contacts[index]
-    contact_info.init(main_window, selected_contact)
+
+    dialog = contact_info.init(main_window, selected_contact)
+    main_window.wait_window(dialog)
+
+    contact_list.delete(index)
+    contact_list.insert(index, selected_contact)
 
 def add_contact():
     new_contact = person()
