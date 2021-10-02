@@ -10,15 +10,19 @@ def onselect(evt):
     index = int(w.curselection()[0])
     selected_contact = contacts[index]
 
-    dialog = contact_info.init(main_window, selected_contact)
+    dialog = contact_info.init(main_window, selected_contact, False)
     main_window.wait_window(dialog)
 
     contact_list.delete(index)
-    contact_list.insert(index, selected_contact)
+
+    if selected_contact.get_is_deleted():
+        del contacts[index]
+    else:
+        contact_list.insert(index, selected_contact)
 
 def add_contact():
     new_contact = person()
-    dialog = contact_info.init(main_window, new_contact)
+    dialog = contact_info.init(main_window, new_contact, True)
 
     main_window.wait_window(dialog)
 

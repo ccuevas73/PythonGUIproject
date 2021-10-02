@@ -3,6 +3,7 @@ class person:
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
+        self.is_deleted = False
 
     def __str__(self):
         return self.get_full_name()
@@ -28,3 +29,11 @@ class person:
 
     def get_email(self):
         return self.email
+
+    
+
+    def get_is_deleted(self):
+        return self.is_deleted
+
+    def set_is_deleted(self, value: str):
+        self.is_deleted = value
