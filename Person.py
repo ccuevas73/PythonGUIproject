@@ -37,3 +37,13 @@ class person:
 
     def set_is_deleted(self, value: str):
         self.is_deleted = value
+
+    def get_is_person_invalid(self):
+        is_first_name_blank = not self.first_name or self.first_name.isspace()
+        is_last_name_blank = not self.last_name or self.last_name.isspace()
+        return is_first_name_blank or is_last_name_blank
+
+    def overwrite(self, other):
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.email = other.email

@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from Person import *
 
 __pady = 2
@@ -53,11 +54,35 @@ def __init__controls(isAdd: bool):
     
 
 def __save_contact():
-    current_contact.set_first_name(first_name_text.get())
-    current_contact.set_last_name(last_name_text.get())
-    current_contact.set_email(email_text.get())
-    current_window.destroy()
+
+    temp_person = person(first_name_text.get(), last_name_text.get(), email_text.get())
+    if temp_person.get_is_person_invalid():
+        __disable_all_controls()
+        messagebox.showerror("Error", "Invalid Entry, Please try again.")
+        __enable_all_controls()
+    else:
+        current_contact.overwrite(temp_person)
+        current_window.destroy()
 
 def __delete_contact():
     current_contact.set_is_deleted(True)
+    __close_window()
+
+def __disable_all_controls():
+    for w in current_window.winfo_children():
+        w.configure(state = DISABLED)
+
+    current_window.protocol('WM_DELETE_WINDOW', __disable_event)
+
+def __enable_all_controls():
+    for w in current_window.winfo_children():
+        w.configure(state = NORMAL)
+
+    current_window.protocol('WM_DELETE_WINDOW', __close_window)
+
+
+def __disable_event():
+    pass
+
+def __close_window():
     current_window.destroy()
