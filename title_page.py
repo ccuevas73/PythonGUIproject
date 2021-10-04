@@ -26,8 +26,9 @@ def add_contact():
 
     main_window.wait_window(dialog)
 
-    contacts.append(new_contact)
-    contact_list.insert(END, new_contact)
+    if not new_contact.get_is_person_invalid():
+        contacts.append(new_contact)
+        contact_list.insert(END, new_contact)
 
 
 main_window = Tk()
@@ -48,11 +49,11 @@ exit_button.pack()
 
 def populate_contacts():
     contacts.clear()
-    contacts.append(person('jake', 'turner', 'colts@anus.com'))
-    contacts.append(person('ducky', 'ewww', 'enus@aol.com'))
+    contacts.append(person('jake', 'turd', 'colts@oops.com'))
+    contacts.append(person('i', 'forgot', 'thiswasincommits@aol.com'))
     contacts.append(person('jordon', 'dfsdf', 'fdasfs@aol.com'))
     contacts.append(person('fasdfs', 'summer', 'summers@yahoo.com'))
-    contacts.append(person('francis', 'dumpters', 'adf@aol.com'))
+    contacts.append(person('francis', 'doessucktho', 'adf@aol.com'))
 
     contact_list.delete(0, END)
 
