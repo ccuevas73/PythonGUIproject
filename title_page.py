@@ -36,7 +36,7 @@ main_window = Tk()
 contact_list = Listbox(main_window, selectmode=SINGLE)
 contact_list.bind('<<ListboxSelect>>', onselect)
 
-add_button = Button(main_window, text='add', command=add_contact)
+add_button = Button(main_window, text='Add', command=add_contact)
 exit_button = Button(main_window, text="Exit", command=main_window.destroy)
 
 contact_list.pack()
@@ -49,11 +49,11 @@ exit_button.pack()
 
 def populate_contacts():
     contacts.clear()
-    contacts.append(person('jake', 'turd', 'colts@oops.com'))
-    contacts.append(person('i', 'forgot', 'thiswasincommits@aol.com'))
-    contacts.append(person('jordon', 'dfsdf', 'fdasfs@aol.com'))
-    contacts.append(person('fasdfs', 'summer', 'summers@yahoo.com'))
-    contacts.append(person('francis', 'doessucktho', 'adf@aol.com'))
+    contacts.append(person('jake', 'turner', 'colts10@yahoo.com'))
+    contacts.append(person('duckworth', 'horgan', 'chargers@yahoo.com'))
+    contacts.append(person('jordon', 'fisher', 'rams@aol.com'))
+    contacts.append(person('tyrone', 'morson', 'lions@yahoo.com'))
+    contacts.append(person('francis', 'edgerton', 'thedolphins@gmail.com'))
 
     contact_list.delete(0, END)
 
