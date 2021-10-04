@@ -43,13 +43,13 @@ class person:
     def get_is_person_invalid(self):
         is_first_name_blank = not self.first_name or self.first_name.isspace()
         is_last_name_blank = not self.last_name or self.last_name.isspace()
-        return is_first_name_blank or is_last_name_blank
+        return is_first_name_blank or is_last_name_blank or self.is_email_invalid()
 
     def is_email_invalid(self):
         if not self.email:
             return False
         else:
-            return not re.match(r"^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$", email)
+            return not re.match(r"^[A-Za-z0-9\.\+_-]+@[A-Za-z0-9\._-]+\.[a-zA-Z]*$", self.email)
             
 
     def overwrite(self, other):
