@@ -7,7 +7,12 @@ contacts = []
 
 def onselect(evt):
     w = evt.widget
-    index = int(w.curselection()[0])
+    current_selection = w.curselection()
+
+    if len(current_selection) == 0:
+        return
+        
+    index = int(current_selection[0])
     selected_contact = contacts[index]
 
     dialog = contact_info.init(main_window, selected_contact, False)
