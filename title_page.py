@@ -14,6 +14,10 @@ def onselect(evt):
         return
         
     index = int(current_selection[0])
+
+    if len(contacts) == 0:
+        return
+
     selected_contact = contacts[index]
 
     dialog = contact_info.init(main_window, selected_contact, False)
@@ -22,6 +26,7 @@ def onselect(evt):
     contact_list.delete(index)
 
     if selected_contact.get_is_deleted():
+        database.delete(selected_contact)
         del contacts[index]
     else:
         contact_list.insert(index, selected_contact)
@@ -33,6 +38,7 @@ def add_contact():
     main_window.wait_window(dialog)
 
     if not new_contact.get_is_person_invalid():
+        database.insert(new_contact)
         contacts.append(new_contact)
         contact_list.insert(END, new_contact)
 
@@ -55,17 +61,16 @@ exit_button.pack()
 
 def populate_contacts():
     database.init_database()
+    dbcontacts = database.load()
+    
     contacts.clear()
-    contacts.append(person('jake', 'turner', 'colts10@yahoo.com'))
-    contacts.append(person('duckworth', 'horgan', 'chargers@yahoo.com'))
-    contacts.append(person('jordon', 'fisher', 'rams@aol.com'))
-    contacts.append(person('tyrone', 'morson', 'lions@yahoo.com'))
-    contacts.append(person('francis', 'edgerton', 'thedolphins@gmail.com'))
+    contacts.extend(dbcontacts)
 
     contact_list.delete(0, END)
 
     for c in contacts:
         contact_list.insert(END, c)
+
 
 
 

@@ -1,11 +1,13 @@
 import re
+import random
 
 class person:
-    def __init__(self, first_name: str='', last_name: str='', email: str=''):
+    def __init__(self, id: int=0, first_name: str='', last_name: str='', email: str=''):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.is_deleted = False
+        self.id = id
 
     def __str__(self):
         return self.get_full_name()
@@ -21,6 +23,15 @@ class person:
 
     def set_email(self, value: str):
         self.email = value
+
+    def get_id(self):
+        return self.id
+
+    def set_id(self):
+        self.id = random.randrange(100000000, 999999999)
+
+        
+
     
 
     def get_last_name(self):

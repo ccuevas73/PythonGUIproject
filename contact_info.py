@@ -55,7 +55,7 @@ def __init__controls(isAdd: bool):
 
 def __save_contact():
 
-    temp_person = person(first_name_text.get(), last_name_text.get(), email_text.get())
+    temp_person = person(0, first_name_text.get(), last_name_text.get(), email_text.get())
     if temp_person.get_is_person_invalid():
         __disable_all_controls()
         messagebox.showerror("Error", "Invalid Entry, Please try again.")
