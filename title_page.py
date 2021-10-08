@@ -1,5 +1,6 @@
 from tkinter import *
 from Person import *
+import database
 
 import contact_info
 
@@ -53,6 +54,7 @@ contact_list.pack()
 exit_button.pack()
 
 def populate_contacts():
+    database.init_database()
     contacts.clear()
     contacts.append(person('jake', 'turner', 'colts10@yahoo.com'))
     contacts.append(person('duckworth', 'horgan', 'chargers@yahoo.com'))
