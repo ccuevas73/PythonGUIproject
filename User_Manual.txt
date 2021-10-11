@@ -1,0 +1,21 @@
+USER MANUAL
+
+At the start of the application, a window containing already existing contacts(if any) will be presented. The names are clickable
+
+to view the information of the desired contact. If there are no existing contacts, you will need to click that "Add" button to
+
+add a new contact. If you wish to leave the app immediatley, you may click the "Exit" button in the initial window. Once you 
+
+proceed in adding a new contact you will be brought to a secondary widow with three entry boxes:
+
+	First Name Box- you will enter the desired contact's first name, you must enter a name or the program will not allow you to save
+
+	Last Name Box-you will enter the desired contact's last name, you must enter a name or the program will not allow you to save
+
+	Email Box-you will enter the desired contact's email, this is optional, the program will still allow you to save the contact without
+	  
+	  	  an email
+
+Once a contact is successfully saved, the program will store your contact in a database until you decide to deleted the contact. The contact
+
+can be deleted by clicking on the contact and pressing the delete button, this will remove the contact from the database. 
