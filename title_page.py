@@ -9,6 +9,7 @@
 from tkinter import *
 from Person import *
 import database
+import os
 
 import contact_info
 
@@ -98,6 +99,8 @@ def add_contact():
 
 #create the main window Tk
 main_window = Tk()
+cwd = os.path.dirname(os.path.realpath(__file__))
+main_window.iconbitmap(cwd + r"\favicon.ico")
 
 #create listbox for contacts and set the selection mode to single item only
 contact_list = Listbox(main_window, selectmode=SINGLE)
