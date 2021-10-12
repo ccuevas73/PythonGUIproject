@@ -7,6 +7,8 @@ from tkinter import messagebox
 #import person class
 from Person import *
 
+import os
+
 #padding values for multiple widgets
 __pady = 2
 __padx = 2
@@ -34,7 +36,8 @@ def init_window(root: Tk, isAdd: bool):
     #creates new contact_info window and sets the global current window variable
     global current_window
     current_window = Toplevel(main_window)
-
+    cwd = os.path.dirname(os.path.realpath(__file__))
+    current_window.iconbitmap(cwd + r"\favicon2.ico")
     #locks input and focus on new window
     current_window.grab_set()
 
